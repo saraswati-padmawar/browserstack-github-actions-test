@@ -7,13 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'BrowserStack Env Setup'
-        uses: 'browserstack/github-actions/setup-env@master'
+        uses: 'saraswati-padmawar/github-actions/setup-env@master'
         with:
           username:  ${{secrets.BROWSERSTACK_USERNAME}}
           access-key: ${{secrets.BROWSERSTACK_ACCESS_KEY}}
           build-name: BUILD_INFO
       - name: 'BrowserStackLocal Setup'
-        uses: 'browserstack/github-actions/setup-local@master'
+        uses: 'saraswati-padmawar/github-actions/setup-local@master'
         with:
           local-testing: start
           local-logging-level: all-logs
@@ -27,6 +27,6 @@ jobs:
       - name: 'run test'
         run: 'node index.js'
       - name: 'BrowserStackLocal Stop'
-        uses: 'browserstack/github-actions/setup-local@master'
+        uses: 'saraswati-padmawar/github-actions/setup-local@master'
         with:
           local-testing: stop
