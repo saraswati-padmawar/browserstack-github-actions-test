@@ -1,4 +1,5 @@
 name: 'BrowserStack'
+
 on: [push, pull_request]
 
 jobs:
@@ -9,23 +10,61 @@ jobs:
       - name: 'BrowserStack Env Setup'
         uses: 'saraswati-padmawar/github-actions/setup-env@master'
         with:
-          username:  ${{secrets.BROWSERSTACK_USERNAME}}
-          access-key: ${{secrets.BROWSERSTACK_ACCESS_KEY}}
+          username: ${{ secrets.BROWSERSTACK_USERNAME }}
+          access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           build-name: BUILD_INFO
+
       - name: 'BrowserStackLocal Setup'
         uses: 'saraswati-padmawar/github-actions/setup-local@master'
         with:
           local-testing: start
           local-identifier: random
-      - name: 'checkout the repository demo'
+
+      - name: 'Checkout Repository'
         uses: 'actions/checkout@v2'
-      - name: 'running npm install'
-        run: 'npm install'
-      - name: 'running http-server'
+
+      - name: 'Install Dependencies'
+        run: npm install
+
+      - name: 'Start HTTP Server'
         run: './node_modules/.bin/http-server -p 8099 &'
-      - name: 'run test'
-        run: 'node index.js'
-      - name: 'BrowserStackLocal Stop'
+
+      - name: 'Run Tests'
+        run: node index.js
+
+      - name: 'Stop BrowserStackLocal'
         uses: 'saraswati-padmawar/github-actions/setup-local@master'
         with:
           local-testing: stop
+
+  windows-job:
+    name: 'BrowserStack Test on Windows'
+    runs-on: windows-latest
+    steps:
+      - name: 'Checkout Repository'
+        uses: 'actions/checkout@v2'
+
+      - name: 'Install Dependencies'
+        run: npm install
+
+      - name: 'Start HTTP Server'
+        run: npx http-server -p 8099 &
+
+      - name: 'Run Tests'
+        run: node index.js
+
+  macos-job:
+    name: 'BrowserStack Test on macOS'
+    runs-on: macos-latest
+    steps:
+      - name: 'Checkout Repository'
+        uses: 'actions/checkout@v2'
+
+      - name: 'Install Dependencies'
+        run: npm install
+
+      - name: 'Start HTTP Server'
+        run: npx http-server -p 8099 &
+
+      - name: 'Run Tests'
+        run: node index.js
