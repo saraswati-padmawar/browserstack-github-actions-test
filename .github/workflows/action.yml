@@ -12,9 +12,17 @@ jobs:
           username:  ${{secrets.BROWSERSTACK_USERNAME}}
           access-key: ${{secrets.BROWSERSTACK_ACCESS_KEY}}
           build-name: BUILD_INFO
+      - name: 'BrowserStackLocal Setup'
+        uses: 'saraswati-padmawar/github-actions/setup-local@master'
+        with:
+          local-testing: start
+          local-logging-level: all-logs
+          local-identifier: random
       - name: 'checkout the repository demo'
         uses: 'actions/checkout@v2'
       - name: 'running npm install'
         run: 'npm install'
+      - name: 'running http-server'
+        run: './node_modules/.bin/http-server -p 8099 &'
       - name: 'run test'
-        run: 'node normal.js'
+        run: 'node index.js'
