@@ -16,7 +16,5 @@ jobs:
         uses: 'actions/checkout@v2'
       - name: 'running npm install'
         run: 'npm install'
-      - name: 'running http-server'
-        run: './node_modules/.bin/http-server -p 8099 &'
       - name: 'run test'
-        run: 'node index.js'
+        run: 'node normal.js'
