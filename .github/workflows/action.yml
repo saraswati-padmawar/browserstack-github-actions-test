@@ -8,18 +8,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'BrowserStack Env Setup'
-        uses: 'saraswati-padmawar/github-actions/setup-env@dependabot-bulk-updates'
+        uses: 'saraswati-padmawar/github-actions/setup-env@ghes-compatible-changes'
         with:
           username: ${{ secrets.BROWSERSTACK_USERNAME }}
           access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           build-name: BUILD_INFO
 
       - name: 'BrowserStackLocal Setup'
-        uses: 'saraswati-padmawar/github-actions/setup-local@dependabot-bulk-updates'
+        uses: 'saraswati-padmawar/github-actions/setup-local@ghes-compatible-changes'
         with:
           local-testing: start
           local-identifier: random
-          local-logging-level: all-logs
     
       - name: 'Checkout Repository'
         uses: 'actions/checkout@v2'
@@ -34,7 +33,7 @@ jobs:
         run: node index.js
 
       - name: 'Stop BrowserStackLocal'
-        uses: 'saraswati-padmawar/github-actions/setup-local@dependabot-bulk-updates'
+        uses: 'saraswati-padmawar/github-actions/setup-local@ghes-compatible-changes'
         with:
           local-testing: stop
 
@@ -43,18 +42,17 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: 'BrowserStack Env Setup'
-        uses: 'saraswati-padmawar/github-actions/setup-env@dependabot-bulk-updates'
+        uses: 'saraswati-padmawar/github-actions/setup-env@ghes-compatible-changes'
         with:
           username: ${{ secrets.BROWSERSTACK_USERNAME }}
           access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           build-name: BUILD_INFO
 
       - name: 'BrowserStackLocal Setup'
-        uses: 'saraswati-padmawar/github-actions/setup-local@dependabot-bulk-updates'
+        uses: 'saraswati-padmawar/github-actions/setup-local@ghes-compatible-changes'
         with:
           local-testing: start
           local-identifier: random
-          local-logging-level: all-logs
    
       - name: 'Checkout Repository'
         uses: 'actions/checkout@v2'
@@ -69,7 +67,7 @@ jobs:
         run: node index.js
 
       - name: 'Stop BrowserStackLocal'
-        uses: 'saraswati-padmawar/github-actions/setup-local@dependabot-bulk-updates'
+        uses: 'saraswati-padmawar/github-actions/setup-local@ghes-compatible-changes'
         with:
           local-testing: stop
   
@@ -78,18 +76,17 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: 'BrowserStack Env Setup'
-        uses: 'saraswati-padmawar/github-actions/setup-env@dependabot-bulk-updates'
+        uses: 'saraswati-padmawar/github-actions/setup-env@ghes-compatible-changes'
         with:
           username: ${{ secrets.BROWSERSTACK_USERNAME }}
           access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           build-name: BUILD_INFO
 
       - name: 'BrowserStackLocal Setup'
-        uses: 'saraswati-padmawar/github-actions/setup-local@dependabot-bulk-updates'
+        uses: 'saraswati-padmawar/github-actions/setup-local@ghes-compatible-changes'
         with:
           local-testing: start
           local-identifier: random
-          local-logging-level: all-logs
 
       - name: 'Checkout Repository'
         uses: 'actions/checkout@v2'
@@ -104,6 +101,6 @@ jobs:
         run: node index.js
 
       - name: 'Stop BrowserStackLocal'
-        uses: 'saraswati-padmawar/github-actions/setup-local@dependabot-bulk-updates'
+        uses: 'saraswati-padmawar/github-actions/setup-local@ghes-compatible-changes'
         with:
           local-testing: stop
