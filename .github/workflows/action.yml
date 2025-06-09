@@ -8,14 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'BrowserStack Env Setup'
-        uses: 'browserstack/github-actions/setup-env@master'
+        uses: 'browserstack/github-actions/setup-env@ghes-compatible'
         with:
           username: ${{ secrets.BROWSERSTACK_USERNAME }}
           access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           build-name: BUILD_INFO
 
       - name: 'BrowserStackLocal Setup'
-        uses: 'browserstack/github-actions/setup-local@master'
+        uses: 'browserstack/github-actions/setup-local@ghes-compatible'
         with:
           local-testing: start
           local-identifier: random
@@ -34,7 +34,7 @@ jobs:
         run: node index.js
 
       - name: 'Stop BrowserStackLocal'
-        uses: 'browserstack/github-actions/setup-local@master'
+        uses: 'browserstack/github-actions/setup-local@ghes-compatible'
         with:
           local-testing: stop
 
@@ -43,14 +43,14 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: 'BrowserStack Env Setup'
-        uses: 'browserstack/github-actions/setup-env@master'
+        uses: 'browserstack/github-actions/setup-env@ghes-compatible'
         with:
           username: ${{ secrets.BROWSERSTACK_USERNAME }}
           access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           build-name: BUILD_INFO
 
       - name: 'BrowserStackLocal Setup'
-        uses: 'browserstack/github-actions/setup-local@master'
+        uses: 'browserstack/github-actions/setup-local@ghes-compatible'
         with:
           local-testing: start
           local-identifier: random
@@ -69,7 +69,7 @@ jobs:
         run: node index.js
 
       - name: 'Stop BrowserStackLocal'
-        uses: 'browserstack/github-actions/setup-local@master'
+        uses: 'browserstack/github-actions/setup-local@ghes-compatible'
         with:
           local-testing: stop
   
@@ -78,14 +78,14 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: 'BrowserStack Env Setup'
-        uses: 'browserstack/github-actions/setup-env@master'
+        uses: 'browserstack/github-actions/setup-env@ghes-compatible'
         with:
           username: ${{ secrets.BROWSERSTACK_USERNAME }}
           access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           build-name: BUILD_INFO
 
       - name: 'BrowserStackLocal Setup'
-        uses: 'browserstack/github-actions/setup-local@master'
+        uses: 'browserstack/github-actions/setup-local@ghes-compatible'
         with:
           local-testing: start
           local-identifier: random
@@ -104,6 +104,6 @@ jobs:
         run: node index.js
 
       - name: 'Stop BrowserStackLocal'
-        uses: 'browserstack/github-actions/setup-local@master'
+        uses: 'browserstack/github-actions/setup-local@ghes-compatible'
         with:
           local-testing: stop
