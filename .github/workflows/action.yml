@@ -19,7 +19,6 @@ jobs:
         with:
           local-testing: start
           local-identifier: random
-          local-logging-level: all-logs
     
       - name: 'Checkout Repository'
         uses: 'actions/checkout@v2'
@@ -54,7 +53,6 @@ jobs:
         with:
           local-testing: start
           local-identifier: random
-          local-logging-level: all-logs
    
       - name: 'Checkout Repository'
         uses: 'actions/checkout@v2'
@@ -89,7 +87,6 @@ jobs:
         with:
           local-testing: start
           local-identifier: random
-          local-logging-level: all-logs
 
       - name: 'Checkout Repository'
         uses: 'actions/checkout@v2'
